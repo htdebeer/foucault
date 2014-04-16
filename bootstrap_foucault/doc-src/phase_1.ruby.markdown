@@ -1,6 +1,4 @@
-
-
-# Phase 1: sizing start and end
+## Phase 1: sizing start and end
 
 According to the pandoc manual, fenced code blocks are bit more complicated
 than just lines of code enclosed by two lines starting with three tildes. For
@@ -28,7 +26,6 @@ end
 Now, we adapt the program a bit.
 
 ~~~~~{.ruby}
-
 def program_collector(document)
     program = []
     incode = false

@@ -1,5 +1,4 @@
-
-# Phase 2: two kinds of fences
+## Phase 2: two kinds of fences
 
 Not only tildes can make up a fence, also the backtick can do so if a line
 starts with, at least, three backticks. This usage of the backtick to denote

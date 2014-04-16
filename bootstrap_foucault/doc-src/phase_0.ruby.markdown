@@ -1,13 +1,11 @@
+## Phase 0: Simple Fenced Code Blocks
 
-# Phase 0: simple code blocks
+The simplest way to add a fenced code block is to use fences of exactly three
+tildes.
 
-Looking at writing programming code in markdown, there are multiple ways to do
-so. The most obvious way to add code to markdown is to enclose all code blocks
-in between lines starting with, at least, three tildes.
-
-~~~
-# say, like this.
-~~~
+    ~~~
+    # say, like this.
+    ~~~
 
 To run a literate program, then, is to find a way to get the code out the
 document and feed it to the compiler or interpreter. A simple way to go about
