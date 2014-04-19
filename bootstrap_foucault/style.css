@@ -1,0 +1,139 @@
+body {
+  font-family: 'Garamond', serif;
+  font-size: 13pt;
+  margin-left: 10mm;
+  counter-reset: table;
+  counter-reset: figure;
+  counter-reset: section;
+  counter-reset: subsection;
+  counter-reset: subsubsection;
+
+  max-width: 180mm;
+}
+
+header {
+  font-family: 'Garamond', serif;
+}
+
+header h1.title {
+  text-align: center;
+  font-size: 22pt;
+}
+
+header h2.author {
+  text-align: center;
+  font-size: 14pt;
+}
+
+header h3.date {
+  text-align: center;
+  font-size: 14pt;
+}
+
+h1 :before {
+  content: counter(section) ' ';
+  font-size: smaller;
+}
+
+h1 {
+  font-size: 20pt;
+  counter-increment: section;
+  counter-reset: subsection;
+  counter-reset: subsubsection;
+}
+
+h2 :before {
+  content: counter(section) '.' counter(subsection) ' ';
+  font-size: smaller;
+}
+
+h2 {
+  font-size: 16pt;
+  counter-increment: subsection;
+  counter-reset: subsubsection;
+}
+
+h3 :before {
+  content: counter(section) '.' counter(subsection) '.' counter(subsubsection) ' ';
+  font-size: smaller;
+}
+
+h3 {
+  font-size: 14pt;
+  counter-increment: subsubsection;
+}
+
+h4 {
+  font-size: 12pt;
+}
+
+h1, h2, h3 {
+}
+
+h1 a, h2 a, h3 a, h4 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  text-align: justify;
+}
+
+
+table {
+  counter-increment: table;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid dimgray;
+  padding: 0.25ex;
+}
+
+table caption:before {
+  content: 'Table ' counter(table) ': ';
+  font-weight: bolder;
+}
+
+figure {
+  counter-increment: figure;
+}
+
+figcaption {
+  text-align: center;
+  font-size: smaller;
+}
+
+figure figcaption:before {
+  content: 'Figure ' counter(figure) ': ';
+  font-weight: bolder;
+}
+
+
+pre {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+#references ~ p {
+  margin-left: 2em;
+  text-indent: -2em;
+}
+
+aside {
+  clear: both;
+  float: right;
+  margin-right: -30mm;
+  padding-left: 3mm;
+  width: 25mm;
+  font-size: smaller;
+  text-align: left;
+}
+
+img { 
+  max-height: 75mm;
+  max-width: 150mm;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}

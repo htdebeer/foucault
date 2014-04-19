@@ -22,7 +22,6 @@ fence. Besides keeping the state, we'll also keep track of the size of the
 fence. Let us build that state machine.
 
 ~~~{.ruby}
-
 class CodeBlockDeterminator
 
     def initialize()
@@ -34,18 +33,23 @@ class CodeBlockDeterminator
         case @state
         when :fenced_block
             if is_fence?(line) and fence_size(line) >= @size and fence_type(line) == @type then
+                 # recognized the end of this code block
                  to_start_state 
             else
-                collect_line = true
+                # We're still in a code block: collect this line
+                return true
             end            
         when :start
             if is_fence?(line)
+                # Start of a new code block
                 @state = :fenced_block
                 @type = fence_type line
                 @size = fence_size line
             end
         end
-        collect_line
+        
+        # not in a code block: don't collect this line
+        return false
     end
 
     private
@@ -71,14 +75,11 @@ class CodeBlockDeterminator
     end
 
 end
-        
 ~~~
 
 Using that state machine, the program becomes
 
 ~~~{.ruby}
-
-
 def program_collector(document)
     program = []
     state_machine = CodeBlockDeterminator.new
