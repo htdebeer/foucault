@@ -17,6 +17,7 @@ for this purpose. Following the [documentation page of
     detail in the rest of this section.
 
 ~~~{.ruby}
+#!/usr/bin/env ruby
 require 'ostruct'
 require 'optparse'
 
@@ -32,18 +33,8 @@ OptionParser.new do |opts|
     opts.banner = "Literate programming with Foucault — taking a narrative turn"
     opts.separator ""
     opts.separator "Usage: foucault [options] input files"
-    opts.separator "or"
-    opts.separator "Usage: foucault -m OUTPUT DIR INPUT DIR"
     opts.separator ""
     opts.separator "Options:"
-
-    opts.on("-m OUTPUT DIR",
-            "--mirror OUTPUT DIR",
-            "Mirror the input directory(s) to this output directory") do |dir|
-        options.mirror = true
-        options.output_dir = dir
-    end
-
 
     opts.on("-o", 
             "--output [PATH]", 
@@ -146,57 +137,4 @@ else
     puts program
 end
 ~~~
-
-## More complex translation schemes
-
-Foucault can be used to translate one or more input files to an output file or
-standard output. That is fine for small programs, but more complex programs
-have a more complex structure than one single file. Translating a complex
-document to such a complex program structure is not obvious. We need meta data
-in or around our document to support complex translation processes. A well
-known solution to this kind of problem has been around for decades: makefiles.
-As these solutions already exist, we leave it to the user to use those, if
-they want to.
-
-Different translation schemes and use cases:
-
-1. One input file, one output file
-2. Multiple input files, one output file
-3. Multiple input files, multiple output files
-
-The first two translation schemes are covered already. We will look at the third
-translation scheme in more detail.
-
-One possible work flow for this complex translation scheme could be mirroring
-an input directory to an output directory. In this solution the author of the
-document should take into account the resulting program code structure, having
-it fix the structure of the source document. Of course, besides translating to
-source code, the document also has to be translated into a readable document,
-which is done with a separate tool from foucault. That might introduce some
-difficulties, not in the least because sensible program structuring might not
-be that sensible to structure a document.
-
-Then again, mirroring input and output directories is an easy solution, both
-to understand and to work into foucault. A possible setup could be: `foucault
--m output_dir input_dir`. If multiple input directories are given, each of
-these will be mirrored into the output directory. If only one input directory
-is given, the contents of that directory are mirrored into the output
-directory.
-
-Of course, writing a whole directory in one go can result in all kinds of
-problems, especially given human users. For example, what happens when the
-output directory equals the input directory? Then again, we expect the user to
-be professionals who know what they are doing. On the other hand, we could
-request the user to give double confirmation. Maybe with an option to forego
-that feature (or the other way around). 
-
-
-## Error handling: files and such
-
-What to do when an input file cannot be read, or when the output directory
-cannot be opened for writing? At the moment, Foucault assumes everything is
-fine and happy, and if a problem is encountered the Ruby interpreter just dies
-with a stack trace. That's not very helpful. So, how to handle errors
-gracefully?
-
 
