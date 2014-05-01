@@ -1,10 +1,27 @@
+~~~{.ruby}
+# Copyright 2014 Huub de Beer 
+#
+# This file is part of Foobar.
+#
+# Foucault is free software: you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option)
+# any later version.  
+#          
+# Foucault is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# Foucault.  If not, see <http://www.gnu.org/licenses/>.
+~~~
+
 ## State machine to determinate lines 
 
+The state machine to determinate code block lines is put in its own class.
 
 ~~~{.ruby}
-
-
-
 class CodeBlockDeterminator
 
     def initialize()
@@ -60,5 +77,4 @@ class CodeBlockDeterminator
     end
 
 end
-        
 ~~~

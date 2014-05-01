@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'ostruct'
 require 'optparse'
 
@@ -10,22 +11,11 @@ options.debug = false
 
 OptionParser.new do |opts|
     
-    opts.banner = "Literate programming with Foucault — taking a narrative turn"
+    opts.banner = "Literate programming with Foucault -- taking a narrative turn"
     opts.separator ""
     opts.separator "Usage: foucault [options] input files"
-    opts.separator "or"
-    opts.separator "Usage: foucault -m OUTPUT DIR INPUT DIR"
     opts.separator ""
     opts.separator "Options:"
-
-    opts.on("-m OUTPUT DIR",
-            "--mirror OUTPUT DIR",
-            "Mirror the input directory(s) to this output directory") do |dir|
-
-        options.mirror = true
-        options.output_dir = dir
-    end
-
 
     opts.on("-o", 
             "--output [PATH]", 
@@ -54,7 +44,7 @@ end
 def program_collector(document, debug = false)
     program = []
 
-    require_relative 'lib/code_block_determinator.rb'
+    require 'foucault/code_block_determinator'
 
     line_determinator = CodeBlockDeterminator.new
 
