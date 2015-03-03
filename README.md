@@ -13,7 +13,7 @@ functionality foucault should offer to support (literate) programming best.
 This first prototype is not intended for use in production environments!
 
 See [the literate program about bootstrapping
-foucault](http://htmlpreview.github.com/?https://github.com/htdebeer/foucault/blob/master/bootstrapping_foucault.html) for documentation about foucault.
+foucault](bootstrapping_foucault.html) for documentation about foucault.
 
 # Install
 
